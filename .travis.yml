@@ -8,8 +8,8 @@ env:
 python:
   - "2.7"
 before_install:
+  - pip install --upgrade pip setuptools tox virtualenv
   - if [ "x$TOX_ENV" = 'xcover' ]; then pip install coveralls; fi
-install: pip install tox
 script: tox -e $TOX_ENV
 after_success:
   - if [ "x$TOX_ENV" = 'xcover' ]; then coveralls; fi
