@@ -10,6 +10,7 @@ python:
 before_install:
   - pip install --upgrade pip setuptools tox virtualenv
   - if [ "x$TOX_ENV" = 'xcover' ]; then pip install coveralls; fi
-script: tox -e $TOX_ENV
+script:
+  - tox -e $TOX_ENV
 after_success:
   - if [ "x$TOX_ENV" = 'xcover' ]; then coveralls; fi
